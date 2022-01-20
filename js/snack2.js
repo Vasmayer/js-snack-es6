@@ -5,7 +5,8 @@ nome, punti fatti, falli subiti.
 Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0.
 Generare numeri random al posto degli 0 nelle proprietà:
 Punti fatti e falli subiti.
-Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
+Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e 
+falli subiti e stampiamo tutto in console.
 BONUS
 Stampare in pagina oltre che in console!
  */
@@ -15,8 +16,8 @@ Stampare in pagina oltre che in console!
 const rdnNumber = (min,max) => Math.floor(Math.random() * (max - min)) + min;
 
 /* creo un'array di oggetti 'club' contenente le squadre di calcio */
-const club = [
-    {name:'Juventus',points:0,foulsSuffered:3},
+const clubs = [
+    {name:'Juventus',points:0,foulsSuffered:0},
     {name:'Milan',points:0,foulsSuffered:0},
     {name:'Inter',points:0,foulsSuffered:0},
     {name:'Roma',points:0,foulsSuffered:0},
@@ -30,16 +31,39 @@ const club = [
     {name:'Bologna',points:0,foulsSuffered:0}
 ];
 
+const newClubs = [];
+
 /* stampo in console l'array */
-console.table(club);
+console.table(clubs);
 
 const min = 0;
 const max = 100;
 
 /* creo un ciclo per leggere l'array di oggetti */
-for(let i = 0;i < club.length;i++)
+for(let i = 0;i < clubs.length;i++)
 {
-    /* setto i valori casualmante */
-    club[i].points = rdnNumber(min,max);
-    club[i].foulsSuffered = rdnNumber(min,max);
+    const currentClub = clubs[i];
+    const points = rdnNumber(min,max);
+    const foulsSuffered = rdnNumber(min,max);
+    /* setto i valori */
+    currentClub.points = points
+    currentClub.foulsSuffered = foulsSuffered;
+
+    /* destrutturo */
+    const {name} = currentClub;
+
+    /* creo un'oggetto vuoto */
+    const newClub = {};
+   
+    /* carico l'oggetto con i valori */
+    newClub['name'] = name;
+    newClub['foulsSuffered'] = foulsSuffered;
+
+    /* pusho l'oggetto nell'array */
+    newClubs.push(newClub);
+    
 }
+
+/* stampo la tabella con i dati caricati */
+console.table(clubs);
+console.table(newClubs);
