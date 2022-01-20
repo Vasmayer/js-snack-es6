@@ -8,6 +8,8 @@ BONUS
 Stampare in pagina oltre che in console!
  */
 
+
+/* creo un'array di oggetti 'bikes' */
 bikes = [
     {nome:'Bianchi',peso:15},
     {nome:'Carrera',peso:5},
@@ -19,10 +21,21 @@ bikes = [
     {nome:'Lapierre',peso:7}
 ];
 
-let 
-for(let i = 0;i < bikes.length;i++)
+/* prendo il primo oggetto in assoluto e lo imposto come bicicletta più leggera */
+let minWeight = bikes[0];
+
+/* ciclo sull'array di oggetti partendo dalla posizione numero 1  */
+for(let i = 1;i < bikes.length;i++)
 {
-    const {nome,peso}  = bikes[i];
+    /* destructuring */
+    const {peso}  = bikes[i];
 
-
+    /* verifico se la bicicletta con minor peso è quella che mi sono salvato in precedenza  nell'oggetto minWeight*/
+    if(minWeight.peso > peso)
+    {
+        minWeight = bikes[i];
+    }
 }
+
+/* stampo in console la bicicletta che pesa di meno */
+console.log(minWeight.nome,minWeight.peso);
