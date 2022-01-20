@@ -10,7 +10,7 @@ Stampare in pagina oltre che in console!
 
 
 /* creo un'array di oggetti 'bikes' */
-bikes = [
+const bikes = [
     {nome:'Bianchi',peso:15},
     {nome:'Carrera',peso:5},
     {nome:'Battaglin',peso:9},
@@ -21,6 +21,7 @@ bikes = [
     {nome:'Lapierre',peso:7}
 ];
 
+console.table(bikes);
 /* prendo il primo oggetto in assoluto e lo imposto come bicicletta più leggera */
 let minWeight = bikes[0];
 
