@@ -11,7 +11,7 @@ BONUS
 Stampare in pagina oltre che in console!
  */
 
-/* FUNCTIONS */
+/*****************  FUNCTIONS ********************/
 
 const rdnNumber = (min,max) => Math.floor(Math.random() * (max - min)) + min;
 
