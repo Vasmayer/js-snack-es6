@@ -11,6 +11,7 @@ BONUS
 Stampare in pagina oltre che in console!
  */
 
+
 /*****************  FUNCTIONS ********************/
 
 const rdnNumber = (min,max) => Math.floor(Math.random() * (max - min)) + min;
@@ -33,6 +34,9 @@ const clubs = [
 
 const newClubs = [];
 
+/* recupero gli elementi che mi servono */
+
+const tableBody = document.getElementById('table-body');
 /* stampo in console l'array */
 console.table(clubs);
 
@@ -61,6 +65,18 @@ for(let i = 0;i < clubs.length;i++)
 
     /* pusho l'oggetto nell'array */
     newClubs.push(newClub);
+
+    const tr = document.createElement('tr');
+    const tdName = document.createElement('td');
+    const tdfoulsSuffered = document.createElement('td');
+    tdName.append(`${newClub.name}`);
+    tdfoulsSuffered.append(`${newClub.foulsSuffered}`);
+    tr.append(tdName);
+    tr.append(tdfoulsSuffered);
+
+    tableBody.appendChild(tr);
+
+
     
 }
 
