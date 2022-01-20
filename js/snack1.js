@@ -8,6 +8,8 @@ BONUS
 Stampare in pagina oltre che in console!
  */
 
+/* prendo gli elementi che mi servono */
+const info = document.getElementById('info-bike');
 
 /* creo un'array di oggetti 'bikes' */
 const bikes = [
@@ -40,3 +42,11 @@ for(let i = 1;i < bikes.length;i++)
 
 /* stampo in console la bicicletta che pesa di meno */
 console.log(minWeight.nome,minWeight.peso);
+
+/* creo il messaggio da stampare */
+let message = `<div class="h1"><i class="far fa-copyright"></i><strong class="mx-5">Brand:</strong><i>${minWeight.nome}</i></div>`;
+    message += `<div class="h1"><i class="fas fa-weight-hanging"></i><strong class="mx-5">Peso:</strong><i>${minWeight.peso}</i></div>`;
+
+    info.innerHTML = message;
+
+/* stampo i risultati a schermo */
