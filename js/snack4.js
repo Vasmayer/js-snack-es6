@@ -9,16 +9,29 @@ ES (marco de iulio => Marco de iulio);
 BONUS  nei nomi sulle targhe l'iniziale di ogni parola deve essere maiuscola
 ES.: (marco de iulio  => Marco De Iulio) */
 
+/* creo l'array degli studenti */
 const students = [
-    {id:10,nome:'Marco',sumVotes:100},
-    {id:20,nome:'Michele',sumVotes:110},
-    {id:30,nome:'Giuseppe',sumVotes:120},
-    {id:40,nome:'Anacleto',sumVotes:130},
-    {id:50,nome:'Alfredo',sumVotes:140},
-    {id:60,nome:'Pietro',sumVotes:150},
-    {id:70,nome:'Ornella',sumVotes:160},
-    {id:80,nome:'Francesca',sumVotes:170},
-    {id:90,nome:'Antonietta',sumVotes:180}
+    {id:10,name:'marco giuliani moroni',sumVotes:100},
+    {id:20,name:'michele bianchi',sumVotes:110},
+    {id:30,name:'giuseppe verdi',sumVotes:120},
+    {id:40,name:'enrico gialli',sumVotes:130},
+    {id:50,name:'alfredo rossi',sumVotes:140},
+    {id:60,name:'pietro marroni',sumVotes:150},
+    {id:70,name:'ornella franceschini',sumVotes:160},
+    {id:80,name:'francesca rosa',sumVotes:170},
+    {id:90,name:'antonietta azzurri',sumVotes:180}
 ];
    
+const listNames = [];
+ students.forEach(({name}) => {
+
+    const listWords = name.split(' ');
+    const changedNameArray = listWords.map(word => word.charAt(0).toUpperCase() + word.substring(1).toLowerCase());
+    const changedName = changedNameArray.join(' ');
+
+    listNames.push(changedName);
+
+});
+
+console.table(listNames);
 
