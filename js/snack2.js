@@ -83,3 +83,4 @@ for(let i = 0;i < clubs.length;i++)
 /* stampo la tabella con i dati caricati */
 console.table(clubs);
 console.table(newClubs);
+
