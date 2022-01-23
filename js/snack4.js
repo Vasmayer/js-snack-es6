@@ -11,6 +11,19 @@ ES.: (marco de iulio  => Marco De Iulio) */
 
 /* functions */
 
+const createTableinDOM = (element,...values) =>
+{
+    const tr = document.createElement('tr');
+
+    for(i=0;i<values.length;i++)
+    {
+        const td = document.createElement('td');
+        td.append(`${values[i]}`);
+        tr.append(td);
+    }
+    
+    element.appendChild(tr);
+}
 /* creo l'array degli studenti */
 const students = [
     {id:100,name:'marco giuliani moroni',sumVotes:50},
@@ -50,12 +63,7 @@ const listNames = [];
 console.table(listNames);
 /* stampo in tabella nel DOM*/
 listNames.forEach((element) => {
-    
-    const tr = document.createElement('tr');
-    const td = document.createElement('td');
-    td.append(`${element}`);
-    tr.append(td);
-    table1.appendChild(tr);
+    createTableinDOM(table1,element);
 });
 
 
@@ -64,15 +72,7 @@ const up70 = students.filter(({sumVotes}) => sumVotes > 70);
 console.table(up70);
 /* stampo in tabella nel DOM*/
 up70.forEach(({name,sumVotes}) => {
-    
-    const tr = document.createElement('tr');
-    const tdName = document.createElement('td');
-    const tdSumVotes = document.createElement('td');
-    tdName.append(`${name}`);
-    tdSumVotes.append(`${sumVotes}`);
-    tr.append(tdName);
-    tr.append(tdSumVotes);
-    table2.appendChild(tr);
+    createTableinDOM(table2,name,sumVotes);
 });
 
 /* con  un filter creo un nuovo array di oggetti con gli studenti che hanno la somma dei voti superiore a 70
@@ -81,18 +81,7 @@ const newStudents = students.filter(({id,sumVotes}) => sumVotes > 70 && id > 120
 console.table(newStudents);
 /* stampo in tabella nel DOM*/
 newStudents.forEach(({id,name,sumVotes}) => {
-    
-    const tr = document.createElement('tr');
-    const tdId = document.createElement('td');
-    const tdName = document.createElement('td');
-    const tdSumVotes = document.createElement('td');
-    tdId.append(`${id}`);
-    tdName.append(`${name}`);
-    tdSumVotes.append(`${sumVotes}`);
-    tr.append(tdId);
-    tr.append(tdName);
-    tr.append(tdSumVotes);
-    table3.appendChild(tr);
+    createTableinDOM(table3,id,name,sumVotes);
 });
 
 
